@@ -14,7 +14,7 @@ const AppNavigator = createStackNavigator(
   {
     Misterbitcoin: HomeScreen,
     Contacts: ContactsScreen, 
-    ContactDetails: ContactScreen, 
+    Details: ContactScreen, 
     ContactEdit: ContactEditScreen
   },
   {

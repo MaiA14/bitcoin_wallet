@@ -5,9 +5,15 @@ const styles = StyleSheet.create({
     marginTop: 10,
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: 'white'
+    justifyContent: 'center'
   },
+  backgroundImage:{
+    width: '100%',
+    height: '100%',
+    justifyContent: "center",
+    alignItems: "center",
+    opacity: 0.9
+},
   text: {
     color: '#ff8'
   },
@@ -19,36 +25,28 @@ const styles = StyleSheet.create({
   logoText: {
     fontSize: 24,
     fontWeight: '600',
-    padding: 10
+    padding: 10,
+    color: 'white'
   },
   logoDescription: {
     fontSize: 15,
     fontWeight: '600',
     color: 'white'
   },
-  buttons: {
-    textAlign: 'center',
-    marginTop: 10,
-    padding: 5,
+  button: {
+    backgroundColor: '#ed4d6e',
+    width: 110,
+    height: 35,
+    paddingTop: 10,
+    paddingBottom: 0,
     lineHeight: 40,
-    width: 100,
-    borderWidth: 1.5,
-    borderRadius: 30,
-    alignItems: 'center',
-    backgroundColor: '#4286f4',
-    marginLeft: 100
+    borderRadius: 5,
+    borderColor: 'black',
+    margin: 10,
   },
-  btnText: {
-    fontWeight: 'bold',
+  buttonText: {
+    textAlign: 'center',
     color: 'white'
-  },
-  backgroundImage: {
-    flex: 1,
-    width: '100%',
-    height: '100%',
-    justifyContent: "center",
-    alignItems: "center",
-    opacity: 0.7,
   }
 });
 

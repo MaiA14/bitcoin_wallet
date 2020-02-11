@@ -1,17 +1,28 @@
 
-  import { StyleSheet } from 'react-native';
+import { StyleSheet } from 'react-native';
 
-  const styles = StyleSheet.create({
-  container: {
+const styles = StyleSheet.create({
+  ListContainer: {
+    marginTop: 70,
+    flex: 1,
+    bottom: 50,
+  },
+  list: {
+    // margin:70,
     marginTop: 20,
+    marginLeft: -130,
+    marginBottom: 30,
+  },
+  addButton: {
+    backgroundColor: '#ed4d6e',
+    borderRadius: 35,
     padding: 10,
-    paddingLeft: 55,
-    flexDirection: "row",
-    alignContent: "center",
-    // backgroundColor:"pink",
-    justifyContent: "center",
-    width: 1000,
+    marginTop: 80
+  },
+  addButtonText: {
+    fontSize: 30,
+    color: 'white'
   }
 });
 
-  export default styles
+export default styles

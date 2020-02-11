@@ -1,10 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { View, TouchableOpacity, Text, Image } from 'react-native';
+import { View, TouchableOpacity, Text, Image, ImageBackground } from 'react-native';
+import contactStyle from '../styles/contact.style';
 import styles from '../styles/app.style';
 import StoreContext from '../store';
 
 export default function ContactScreen({ navigation }) {
-  let id = navigation.getParam("id");
+  let id = navigation.getParam('id');
   const key = navigation.getParam('key');
   const ContactStore = useContext(StoreContext).ContactStore;
   const [contact, setContact] = useState('');
@@ -31,26 +32,32 @@ export default function ContactScreen({ navigation }) {
     navigation.navigate('ContactEdit', { id: id })
   }
 
-  const onBack = () => {
-    navigation.navigate('Contacts');
-  }
+  // const onBack = () => {
+  //   navigation.navigate('Contacts');
+  // }
 
   return (
-    <View>
+    <ImageBackground style={styles.backgroundImage} 
+    source={{uri: 'https://res.cloudinary.com/dtwqtpteb/image/upload/v1581361699/xvu06sg5j5rmntprmvhh.jpg'}}>
+    <View style={contactStyle.detailsContainer}>
       <Image
         style={{ width: 100, height: 100, margin: 10 }}
-        source={{ uri: `https://robohash.org/${contact._id}` }}></Image>
-      <Text style={styles.btnText}>name: {contact.name}</Text>
-      <Text style={styles.btnText}>email: {contact.email}</Text>
-      <Text style={styles.btnText}>phone: {contact.phone}</Text>
-      <TouchableOpacity style={styles.buttons} onPress={onEditContact}>
-        <Text style={styles.btnText}>edit details</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttons} onPress={onDelete}>
-        <Text style={styles.btnText}>delete contact</Text>
-      </TouchableOpacity>
-      <TouchableOpacity style={styles.buttons} onPress={onBack}>
-        <Text style={styles.btnText}>back</Text>
-      </TouchableOpacity>
-    </View>)
+        source={{ uri: `https://i.imgur.com/ScW5VJl.png` }}></Image>
+      <Text style={contactStyle.contactHeader}>{contact.name}</Text>
+      <Text style={contactStyle.contentText}> {contact.phone}</Text>
+      <Text style={contactStyle.contentText}> {contact.email}</Text>
+      <View style={{ flexDirection: "row" }}>
+        <TouchableOpacity style={contactStyle.button} onPress={onEditContact}>
+          <Text style={contactStyle.buttonText}>Edit details</Text>
+        </TouchableOpacity>
+        <TouchableOpacity style={contactStyle.button} onPress={onDelete}>
+          <Text style={contactStyle.buttonText}>Delete contact</Text>
+        </TouchableOpacity>
+        {/* <TouchableOpacity style={contactStyle.button} onPress={onBack}>
+          <Text  style={contactStyle.buttonText}>Back</Text>
+        </TouchableOpacity> */}
+      </View>
+      </View>
+      </ImageBackground>
+  )
 }

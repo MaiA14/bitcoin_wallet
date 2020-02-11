@@ -8,3 +8,8 @@ export async function getFromStorage(key){
   if (!data) return undefined
   return JSON.parse(data);
 }
+
+export default {
+  getFromStorage,
+  saveToStorage
+}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
-import { View, TextInput, Text, TouchableOpacity } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, ImageBackground } from 'react-native';
 import styles from '../styles/app.style';
+import formStyles from '../styles/form.style';
 
 export default function ContactForm(props) {
     const [name, setContactName] = useState(props.contact.name);
@@ -12,23 +13,28 @@ export default function ContactForm(props) {
     }
 
     const onBack = () => {
-        props.navigation.navigate('ContactScreen');
+        props.navigation.navigate('Details');
     }
 
     return (
-        <View>
-            <TextInput type="text" placeholder="Please Enter Full Name" name="name"
-                onChangeText={setContactName} style={styles.editInput} value={name} />
-            <TextInput type="text" placeholder="Please Enter Email Address" name="email"
-                onChangeText={setContactEmail} style={styles.editInput} value={email} />
-            <TextInput type="text" placeholder="Please Enter Phone Number" name="phone"
-                onChangeText={setContactPhone} style={styles.editInput} value={phone} />
-            <TouchableOpacity style={styles.buttons} onPress={onSave}>
-                <Text style={styles.btnText}>Save</Text>
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.buttons} onPress={onBack}>
-                <Text style={styles.btnText}>back to contacts</Text>
-            </TouchableOpacity>
-        </View>
+
+        <ImageBackground style={styles.backgroundImage}
+            source={{ uri: 'https://res.cloudinary.com/dtwqtpteb/image/upload/v1581361699/xvu06sg5j5rmntprmvhh.jpg' }}>
+            <View style={formStyles.formContainer}>
+                <TextInput type="text" placeholder="Please Enter Full Name" name="name"
+                    onChangeText={setContactName} style={formStyles.input} value={name} />
+                <TextInput type="text" placeholder="Please Enter Email Address" name="email"
+                    onChangeText={setContactEmail} style={formStyles.input} value={email} />
+                <TextInput type="text" placeholder="Please Enter Phone Number" name="phone"
+                    onChangeText={setContactPhone} style={formStyles.input} value={phone} />
+                <TouchableOpacity style={styles.button} onPress={onSave}>
+                    <Text style={styles.buttonText}>Save</Text>
+                </TouchableOpacity>
+                {/* <TouchableOpacity style={styles.button} onPress={onBack}>
+                    <Text style={styles.buttonText}>Back</Text>
+                </TouchableOpacity> */}
+            </View>
+        </ImageBackground>
+
     )
 }
